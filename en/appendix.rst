@@ -47,7 +47,7 @@ This is a minimalist configuration sample for Nginx. Feel free to improve it to 
         # The section below handle the thumbnails cache, on the client (browser)
         # side (optional but recommended)
         location ~* /([^/]+_[0-9]+x[0-9]+(@[0-9]+x)?\.[a-z]+)$ {
-            try_files /img/resized/$1 /index.php?$args;
+            try_files /img/resized/$1 /index.php;
             add_header Cache-Control 'public';
             expires 14d;
             access_log off;
@@ -82,7 +82,7 @@ If you want to run Sonerezh on a subfolder, like ``www.domain.com/sonerezh``, yo
             # The section below handle the thumbnails cache, on the client (browser)
             # side (optional but recommended)
             location ~* /([^/]+_[0-9]+x[0-9]+(@[0-9]+x)?\.[a-z]+)$ {
-                try_files /img/resized/$1 /index.php?$args;
+                try_files /sonerezh/img/resized/$1 /sonerezh/index.php;
                 add_header Cache-Control 'public';
                 expires 14d;
                 access_log off;
